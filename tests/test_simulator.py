@@ -51,11 +51,6 @@ def test_simulator_all_out_of_bounds_commands_ignored():
         "direction": "S"
     }
 
-# def test_simulator_raises_on_unknown_car_command():
-#     car = Car(name="A", initial_position="1 1 N", commands="FX", field=field)
-#     with pytest.raises(ValueError, match="Unknown command: X"):
-#         Simulator(field=field, cars=[car])
-
 def test_simulator_trims_whitespace_commands():
     car = Car(name="A", initial_position="2 2 E", commands=" F F R F  ", field=field)
     sim = Simulator(field=field, cars=[car])
@@ -143,40 +138,5 @@ def test_simulation_cars_start_same_spot_different_directions_no_collision():
 
     assert result["A"]["position"] == (3, 4)
     assert result["B"]["position"] == (3, 2)
-
-# def test_simulation_detects_collision_between_two_cars():
-#     car1 = Car(name="A", initial_position="1 1 E", commands="F", field=field)
-#     car2 = Car(name="B", initial_position="2 1 W", commands="F", field=field)
-#
-#     sim = Simulator(field=field, cars=[car1, car2])
-#     result = sim.run()
-#
-#     assert result["A"]["collided"] is True
-#     assert result["B"]["collided"] is True
-#     assert result["A"]["position"] == (1, 1)
-#     assert result["B"]["position"] == (2, 1)
-#
-# def test_simulation_runs_without_collision_for_separate_paths():
-#     car1 = Car(name="A", initial_position="0 0 N", commands="FF", field=field)
-#     car2 = Car(name="B", initial_position="4 4 S", commands="FF", field=field)
-#
-#     sim = Simulator(field=field, cars=[car1, car2])
-#     result = sim.run()
-#
-#     assert result["A"]["collided"] is False
-#     assert result["B"]["collided"] is False
-#
-# def test_simulation_stops_on_collision_midway():
-#     car1 = Car(name="A", initial_position="1 1 N", commands="FFF", field=field)
-#     car2 = Car(name="B", initial_position="1 4 S", commands="FFF", field=field)
-#
-#     sim = Simulator(field=field, cars=[car1, car2])
-#     result = sim.run()
-#
-#     # They meet at (1,2) after 2 moves
-#     assert result["A"]["collided"]
-#     assert result["B"]["collided"]
-#     assert result["A"]["position"] == (1, 2)
-#     assert result["B"]["position"] == (1, 3)
 
 

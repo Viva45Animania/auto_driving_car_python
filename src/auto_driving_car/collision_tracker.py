@@ -1,8 +1,8 @@
 
 class CollisionTracker:
     def __init__(self):
-        self.current_positions = {}  # {(x, y): car}
-        self.next_positions = {}     # {(x, y): [car1, car2, ...]}
+        self.current_positions = {}
+        self.next_positions = {}
         self.collided_cars = set()
         self.step = 0
 
@@ -32,17 +32,14 @@ class CollisionTracker:
         self.next_positions[next_position].append(car)
 
     def resolve_collisions(self):
-        # Handle all potential collisions after previews are gathered
         for position, cars in self.next_positions.items():
             if len(cars) > 1:
                 for car in cars:
-                    # All cars aiming for the same spot — collide with each other
                     others = [c.name for c in cars if c != car]
                     if others:
                         car.collide_with(others[0], position, self.step)
                         self.collided_cars.add(car.name)
             else:
-                # Safe move — update the car’s position
                 car = cars[0]
                 old_pos = car.current_position()
                 new_x, new_y = position

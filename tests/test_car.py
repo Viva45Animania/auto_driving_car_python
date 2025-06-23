@@ -109,20 +109,6 @@ def test_car_with_no_commands_does_nothing():
     assert (car.x_axis, car.y_axis) == (3, 3)
     assert car.direction.value == 'E'
 
-# def test_car_does_not_move_after_collision_flag():
-#     car = Car(
-#         name='E',
-#         initial_position="1 1 N",
-#         commands="FF",
-#         field=field
-#     )
-
-    # car.has_collided = True
-    #
-    # car.execute_next_command()
-    # assert (car.x_axis, car.y_axis) == (1, 1)
-    # assert car.commands == ['F','F']  # Command not consumed
-
 def test_car_starts_at_border_facing_outward():
     car = Car(
         name='F',

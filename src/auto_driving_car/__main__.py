@@ -85,7 +85,7 @@ def run_simulation():
 
     post_simulation_menu()
 
-    # Post-simulation menu
+
 def post_simulation_menu():
     global cars
     while True:

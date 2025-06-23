@@ -51,25 +51,6 @@ class Car:
         elif command == 'R':
             self.direction = self.direction.right()
 
-    # def execute_next_command(self):
-    #     if self.command_pointer >= len(self.commands):
-    #         return
-    #
-    #     command = self.commands[self.command_pointer]
-    #     self.command_pointer += 1
-    #
-    #     if command == "F":
-    #         dx, dy = self.direction.forward_offset()
-    #         new_x = self.x_axis + dx
-    #         new_y = self.y_axis + dy
-    #         if self.field.is_within_bounds(new_x, new_y):
-    #             self.x_axis = new_x
-    #             self.y_axis = new_y
-    #     elif command == "L":
-    #         self.direction = self.direction.turn_left()
-    #     elif command == "R":
-    #         self.direction = self.direction.turn_right()
-
     def current_position(self):
         return self.x_axis, self.y_axis
 
